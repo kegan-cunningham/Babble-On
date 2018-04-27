@@ -2,10 +2,18 @@
   "name": "babblio",
   "version": "1.0.0",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "main": "webpack.config.js",
+  "main": "index.js",
   "directories": {
-    "lib": "lib",
-    "test": "test"
+      "test": "test"
+  },
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
   },
   "dependencies": {
     "babel-core": "^6.26.2",
@@ -21,18 +29,15 @@
     "webpack": "^3.10.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kegan-cunningham/Babble-On.git"
+    "url": "git+https://github.com/kegan-cunningham/Babblio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kegan-cunningham/Babble-On/issues"
+    "url": "https://github.com/kegan-cunningham/Babblio/issues"
   },
-  "homepage": "https://github.com/kegan-cunningham/Babble-On#readme"
+  "homepage": "https://github.com/kegan-cunningham/Babblio#readme"
 }
