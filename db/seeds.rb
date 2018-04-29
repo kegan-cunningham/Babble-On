@@ -10,7 +10,7 @@ u1 = User.new(
     username: 'asai',
     firstname: 'Kegan',
     lastname: 'Cunningham',
-    password: 'piano',
-    about: 'believe me'
+    password: 'asdfasdf',
+    bio: 'believe me'
   )
   u1.save!
