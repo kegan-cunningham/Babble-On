@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, Link } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './util/route_util';
 import Login from './components/session_form/session_form_container';
+import Homepage from './homepage';
 
 const App = () => (
   <div>
@@ -14,7 +15,7 @@ const App = () => (
     </header>
 
     <AuthRoute exact path="/" component={ Login } />
-    {/* <Route exact path="/" component={ StarIndexContainer } /> */}
+    <Route exact path="/" component={ Homepage } />
     {/* <Route path="/users/:id" component={ UserShowContainer } /> */}
     <footer>
       {/* <FooterContainer/> */}

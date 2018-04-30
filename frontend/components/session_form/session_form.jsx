@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
       username: this.state.username,
       password: this.state.password,
     });
-    this.props.formAction(formData).then(() => (this.props.handleLoginRedirect()));
+    this.props.formAction(formData)
   }
 
   update(field) {
