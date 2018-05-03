@@ -58,7 +58,11 @@ const SessionLinks = (props) => (
 const ProfilePhotoLinks = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
   <section className="header-photo-links">
     <div onClick={toggleDropdown} className="dropdown-toggle">
-      <i>&#9662;</i>
+      <i>
+        <div className="hamburger-bar"></div>
+        <div className="hamburger-bar"></div>
+        <div className="hamburger-bar"></div>
+      </i>
       <div className="header-photo">
         <img src={currentUser.imageUrl}></img>
       </div>
