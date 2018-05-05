@@ -23,9 +23,10 @@ class UserShow extends Component {
     return (
       <figure className='user-info'>
         <Link className='user-photo-link' to={`/users/${user.id}`}>
-          <div className='user-show-img'>
-              {/* <img src={user.imageUrl} alt={user.firstname} /> */}
-
+          <div className='user-show-img-container'>
+            <div className='user-show-img'>
+                {/* <img src={user.imageUrl} alt={user.firstname} /> */}
+            </div>
           </div>
         </Link>
         <Link className='user-name-link' to={`/users/${user.id}`}>

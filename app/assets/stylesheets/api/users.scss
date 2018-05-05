@@ -10,10 +10,16 @@
   align-items: center;
   background-color: #416847;
   width: 40%;
-  border: 1px solid #416847;
+  border: 1px solid black;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
   border-radius: 15%;
   padding: 5px;
   font-family: 'Source Sans Pro', sans-serif;
+
+  width: 420px;
+  height: 550px;
 
   .user-info{
 
@@ -23,10 +29,13 @@
 
     .user-name-link{
     }
-
-    .user-show-img {
-      border: 1px solid black;
+    .user-show-img-container{
+      border: 5px solid #876b3c;
       border-radius: 15%;
+    }
+    .user-show-img {
+      border: 2px solid black;
+      border-radius: 14%;
       height: 370px;
       width: 370px;
       padding: 0px;
