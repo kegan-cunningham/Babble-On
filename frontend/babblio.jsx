@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from './util/route_util';
 import Login from './components/session_form/session_form_container';
 import HeaderContainer from './components/header/header_container';
 import FooterContainer from './components/footer/footer_container';
+import UserShowContainer from './components/users/user_show_container';
 import Homepage from './homepage';
 
 const App = () => (
@@ -18,7 +19,7 @@ const App = () => (
 
     <AuthRoute exact path="/" component={ Login } />
     <Route exact path="/" component={ Homepage } />
-    {/* <Route path="/users/:id" component={ UserShowContainer } /> */}
+    <Route path="/users/:id" component={ UserShowContainer } />
     <footer>
       <FooterContainer/>
     </footer>

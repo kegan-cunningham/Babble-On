@@ -7,8 +7,6 @@ class UserShow extends Component {
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.id).then(
       () => {
-        this.props.clearReviewErrors();
-        this.props.clearRequestErrors();
       }
     );
   }
@@ -17,30 +15,30 @@ class UserShow extends Component {
 
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchUser(nextProps.match.params.id);
-      this.props.clearReviewErrors();
-      this.props.clearRequestErrors();
     }
   }
 
-  userPhotoName(user) {
+  userInfo(user) {
+    var interests = user.interests || ' none';
     return (
-      <figure className='user-photo-username'>
+      <figure className='user-info'>
         <Link className='user-photo-link' to={`/users/${user.id}`}>
           <div className='user-show-img'>
-              <img src={user.imageUrl} alt={user.name} />
+              {/* <img src={user.imageUrl} alt={user.firstname} /> */}
+
           </div>
         </Link>
-        <Link className='user-star-link' to={`/users/${user.id}`}>
+        <Link className='user-name-link' to={`/users/${user.id}`}>
           <h2 className='user-name'>{user.firstname} {user.lastname}</h2>
         </Link>
-        <Link className='user-star-link' to={`/users/${user.id}`}>
-          <h2 className='user-username'>{user.username}</h2>
+        <Link className='user-bio-link' to={`/users/${user.id}`}>
+          <h2 className='user-bio'>Bio: {user.bio}</h2>
         </Link>
-        <h2 className='user-location'>Home star:
-          <Link className='user-star-link' to={`/stars/${user.star_id}`}>
-            {user.star}
-          </Link>
-        </h2>
+        <Link className='user-interests-link' to={`/stars/${user.star_id}`}>
+          <h2 className='user-location'>Interests:
+            {interests}
+          </h2>
+        </Link>
       </figure>
     );
   }
@@ -52,11 +50,8 @@ class UserShow extends Component {
     return (
       <section className='user-show'>
         <section className='user-show-container'>
-          { this.userPhotoName(user) }
           <section className='user-card'>
-            <ul className='user-bio-container'>
-              <li className={'user-bio'}><h2>Bio:</h2> {user.bio}</li>
-            </ul>
+          { this.userInfo(user) }
           </section>
         </section>
       </section>

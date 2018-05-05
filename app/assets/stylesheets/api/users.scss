@@ -1,3 +1,40 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-card {
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #416847;
+  width: 40%;
+  border: 1px solid #416847;
+  border-radius: 15%;
+  padding: 5px;
+  font-family: 'Source Sans Pro', sans-serif;
+
+  .user-info{
+
+    padding-top: 0px;
+    margin-top: 0px;
+    text-align: center;
+
+    .user-name-link{
+    }
+
+    .user-show-img {
+      border: 1px solid black;
+      border-radius: 15%;
+      height: 370px;
+      width: 370px;
+      padding: 0px;
+      padding-bottom: 10px;
+    }
+
+    & > * {
+      padding: 10px;
+    }
+  }
+}
