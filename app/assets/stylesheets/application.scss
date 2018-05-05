@@ -15,8 +15,10 @@
  *= require_self
  */
 
+ @import './variables';
+
  body {
-  background-color: #876b3c;
+  background-color: $secondary-color;
  }
 
 .homepage {
@@ -24,7 +26,7 @@
 }
 
 .header-logo {
-  color: white;
+  color: $logo-color;
   font-size: 200%;
   font-family: 'Cookie', cursive;
 }
@@ -32,7 +34,7 @@
 header {
   position: fixed;
   top: 0px;
-  background-color: #416847;
+  background-color: $primary-color;
   display: flex;
   width: 100%;
   padding: 5px;
@@ -46,7 +48,7 @@ header {
 
 .header-container {
   display: flex;
-  width: 1200px;
+  width: 100%;
   min-width: 280px;
   box-sizing: border-box;
   justify-content: space-between;
@@ -57,6 +59,10 @@ header {
   height: 5px;
   background-color: black;
   margin: 6px 0;
+}
+
+.header-photo-links {
+  margin-right: 20px;
 }
 
 .hamburger-menu {
@@ -106,10 +112,9 @@ html {
 .footer {
   width: 100%;
   height: 150px;
-  background: #3167b1;
   position: fixed;
   bottom: 0px; left: 0;
-  background-color: #416847;
+  background-color: $primary-color;
   display: flex;
   z-index: 7;
   width: 100%;
@@ -202,7 +207,7 @@ html {
 }
 
 .dropdown {
-  background-color: white;
+  background-color: $ternary-color;
   border: 1px solid rgba(0, 0, 0, 0.15);
   position: absolute;
   top: 42px;
@@ -224,8 +229,8 @@ html {
     text-decoration: none;
     width: 100%;
     &:hover {
-      color: white;
-      background-color: #416847;
+      color: $ternary-color;
+      background-color: $primary-color;
       cursor: pointer;
     }
 
@@ -242,7 +247,7 @@ html {
   margin-top: 8px;
   margin-left: -18px;
   z-index: 9;
-  color: #876b3c;
+  color: $secondary-color;
 }
 
 .hidden {

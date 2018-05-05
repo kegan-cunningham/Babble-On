@@ -25,21 +25,23 @@ class UserShow extends Component {
         <Link className='user-photo-link' to={`/users/${user.id}`}>
           <div className='user-show-img-container'>
             <div className='user-show-img'>
-                {/* <img src={user.imageUrl} alt={user.firstname} /> */}
+              {/* <img src={user.imageUrl} alt={user.firstname} /> */}
             </div>
           </div>
         </Link>
-        <Link className='user-name-link' to={`/users/${user.id}`}>
-          <h2 className='user-name'>{user.firstname} {user.lastname}</h2>
-        </Link>
-        <Link className='user-bio-link' to={`/users/${user.id}`}>
-          <h2 className='user-bio'>Bio: {user.bio}</h2>
-        </Link>
-        <Link className='user-interests-link' to={`/stars/${user.star_id}`}>
-          <h2 className='user-location'>Interests:
-            {interests}
-          </h2>
-        </Link>
+        <section className='user-info-text'>
+          <Link className='user-name-link' to={`/users/${user.id}`}>
+            <h2 className='user-name'>{user.firstname} {user.lastname}</h2>
+          </Link>
+          <Link className='user-bio-link' to={`/users/${user.id}`}>
+            <h2 className='user-bio'>{user.bio}</h2>
+          </Link>
+          <Link className='user-interests-link' to={`/stars/${user.star_id}`}>
+            <h2 className='user-interests'>Interests:
+              {interests}
+            </h2>
+          </Link>
+        </section>
       </figure>
     );
   }
