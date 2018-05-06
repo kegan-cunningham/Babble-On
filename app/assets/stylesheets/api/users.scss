@@ -4,6 +4,10 @@
 
 @import '../variables';
 
+.user-show {
+  margin-top: -30px;
+}
+
 .user-card {
   margin: 0 auto;
   margin-top: 100px;
@@ -21,13 +25,15 @@
   font-family: 'Source Sans Pro', sans-serif;
   color: $text-color;
   width: 420px;
-  height: 550px;
+  min-height: 550px;
+  margin-bottom: 100px;
 
   .user-info{
 
     padding-top: 0px;
     margin-top: 0px;
     text-align: center;
+    max-height: 100%;
 
     .user-info-text{
       background-color: $secondary-color;
