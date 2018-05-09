@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 Server.delete_all
+Subscription.delete_all
 
 u1 = User.new(
     username: 'asai',
@@ -37,7 +38,12 @@ u4 = User.new(
   )
   u4.save!
 
-Server.create(name: "General", owner_id: 1)
-Server.create(name: "Music", owner_id: 2)
-Server.create(name: "Gaming", owner_id: 3)
-Server.create(name: "Movies", owner_id: 4)
+s1 = Server.create!(name: "General", owner_id: u1.id)
+s2 = Server.create!(name: "Music", owner_id: u2.id)
+s3 = Server.create!(name: "Gaming", owner_id: u3.id)
+s4 = Server.create!(name: "Movies", owner_id: u4.id)
+
+Subscription.create!(server_id: s1.id, user_id: u1.id)
+Subscription.create!(server_id: s2.id, user_id: u2.id)
+Subscription.create!(server_id: s3.id, user_id: u3.id)
+Subscription.create!(server_id: s4.id, user_id: u4.id)
