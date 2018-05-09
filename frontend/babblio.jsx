@@ -6,7 +6,7 @@ import Login from './components/session_form/session_form_container';
 import HeaderContainer from './components/header/header_container';
 import FooterContainer from './components/footer/footer_container';
 import UserShowContainer from './components/users/user_show_container';
-import Homepage from './homepage';
+import ServerIndexContainer from './components/servers/server_index_container';
 
 const App = () => (
   <div>
@@ -18,7 +18,7 @@ const App = () => (
     </header>
 
     <AuthRoute exact path="/" component={ Login } />
-    <Route exact path="/" component={ Homepage } />
+    <ProtectedRoute exact path="/" component={ ServerIndexContainer } />
     <Route path="/users/:id" component={ UserShowContainer } />
     <footer>
       <FooterContainer/>

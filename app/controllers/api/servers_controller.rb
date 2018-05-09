@@ -1,4 +1,4 @@
-class ServerController < ApplicationController
+class Api::ServersController < ApplicationController
   before_action :require_logged_in
 
   def index

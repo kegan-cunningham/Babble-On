@@ -4,6 +4,16 @@ class User < ApplicationRecord
   # has_attached_file :image, default_url: "default-user-image.jpg"
   # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  has_many :owned_servers,
+  primary_key: :id,
+  foreign_key: :owner_id,
+  class_name: :Server
+
+  has_many :subscriptions, dependent: :destroy
+
+  has_many :servers,
+  through: :subscriptions
+
   attr_reader :password
 
   after_initialize :ensure_session_token
