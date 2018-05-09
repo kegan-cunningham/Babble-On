@@ -5,20 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+User.delete_all
+Server.delete_all
+
 u1 = User.new(
     username: 'asai',
     firstname: 'Kegan',
     lastname: 'Cunningham',
     password: 'asdfasdf',
-    bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type
-          specimen book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-          and more recently with desktop publishing software like Aldus PageMaker including
-          versions of Lorem Ipsum.'
   )
   u1.save!
 u2 = User.new(
@@ -26,10 +20,6 @@ u2 = User.new(
     firstname: 'Kegan2',
     lastname: 'Cunningham2',
     password: 'asdfasdf2',
-    bio: '222222222222222222222222222222222222222222222222222222222222222222222222222222222
-    222222222222222222222222222222222222222222222222222222222222222222222222222222222
-    222222222222222222222222222222222222222222222222222222222222222222222222222222222
-    222222222222222222222222222222222222222222222222222222222222222222222222222222222'
   )
   u2.save!
 u3 = User.new(
@@ -37,7 +27,6 @@ u3 = User.new(
     firstname: 'Kegan3',
     lastname: 'Cunningham3',
     password: 'asdfasdf3',
-    bio: '333333333333333333333 3 33 3 333 333 333333 33 33 33 3 33333'
   )
   u3.save!
 u4 = User.new(
@@ -45,6 +34,10 @@ u4 = User.new(
     firstname: 'Kegan4',
     lastname: 'Cunningham4',
     password: 'asdfasdf4',
-    bio: 'believe me4'
   )
   u4.save!
+
+Server.create(name: "General", owner_id: 1)
+Server.create(name: "Music", owner_id: 2)
+Server.create(name: "Gaming", owner_id: 3)
+Server.create(name: "Movies", owner_id: 4)

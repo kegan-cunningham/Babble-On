@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @server = Server.where(direct_message: false).find_by(name: params[:name])
+    @server = Server.find_by(name: params[:name])
     if @server
       @subscription = Subscription.new(server_id: @server.id, user_id: current_user.id)
       if @subscription.save
@@ -19,7 +19,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.where(user_id: params[:user_id]).find_by(server_id: params[:server_id])
     if @subscription
       @subscription.destroy!
-      @servers = current_user.servers.where(direct_message: false)
+      @servers = current_user.servers
       render 'api/servers/index'
     else
       render json: ["We couldn't find that server"], status: 404

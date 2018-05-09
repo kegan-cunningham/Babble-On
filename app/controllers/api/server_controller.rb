@@ -2,7 +2,7 @@ class ServerController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @servers = current_user.servers.where(direct_message: false)
+    @servers = current_user.servers
     render 'api/servers/index'
   end
 
@@ -34,7 +34,7 @@ class ServerController < ApplicationController
   end
 
   def destroy
-    @server = Server.where(direct_message: false).find_by(id: params[:id])
+    @server = Server.find_by(id: params[:id])
     if @server
       if current_user && @server.owner_id === current_user.id
         @server.delete
