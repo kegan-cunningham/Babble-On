@@ -33,7 +33,7 @@ class ServerIndex extends React.Component {
         <Link
           className="add-server"
           to={this.props.location.pathname}>
-          <p className="add">Add</p>
+          <p className="add">+</p>
         </Link>
       </div>
     );
