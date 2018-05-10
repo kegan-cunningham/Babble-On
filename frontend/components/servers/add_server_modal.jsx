@@ -58,7 +58,6 @@ class AddServerModal extends React.Component {
     if (this.props.isOpen === false) {
       return null;
     }
-
     return (
       <div>
         <div className="modal">
@@ -94,6 +93,7 @@ class AddServerModal extends React.Component {
             </form>
           </div>
         </div>
+        <div className="modal-screen" onClick={e => this.closeModal(e)}></div>
         <div className="backdrop" onClick={e => this.closeModal(e)}></div>
       </div>
     );
