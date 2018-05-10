@@ -1,17 +1,26 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import AddServerContainer from './add_server_modal_container';
 
 class ServerIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { isModalOpen: false };
   }
 
   componentDidMount() {
-    this.props.getServers(this.props.match.params.id).then(
+    this.props.fetchServers(this.props.match.params.id).then(
       () => {
-        console.log(this.props.servers);
       }
     );
+  }
+
+  openModal() {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ isModalOpen: false });
   }
 
   render() {
@@ -20,7 +29,7 @@ class ServerIndex extends React.Component {
     if (this.props.servers) {
       allServers = Object.values(this.props.servers).map(server => {
         return (
-          <p>Server</p>
+          <p>{ server.name }</p>
         );
       });
     } else {
@@ -31,10 +40,15 @@ class ServerIndex extends React.Component {
       <div className="servers">
         {allServers}
         <Link
+          onClick={() => this.openModal()}
           className="add-server"
           to={this.props.location.pathname}>
-          <p className="add">+</p>
+          <p className="plus">+</p>
         </Link>
+        <AddServerContainer
+          isOpen={this.state.isModalOpen}
+          onClose={() => this.closeModal()}
+          />
       </div>
     );
   }

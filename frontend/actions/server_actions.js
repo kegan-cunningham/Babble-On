@@ -17,14 +17,20 @@ const receiveServer = (currentServer) => {
   };
 };
 
-export const getServers = () => dispatch => {
-  return ServerApiUtil.getServers().then(
+export const createServer = (server) => dispatch => {
+  return ServerApiUtil.createServer(server).then(
+    server => dispatch(receiveServer(server)),
+  );
+};
+
+export const fetchServers = () => dispatch => {
+  return ServerApiUtil.fetchServers().then(
     servers => dispatch(receiveServers(servers)),
   );
 };
 
-export const getServer = (serverId) => dispatch => {
-  return ServerApiUtil.getServer(serverId).then(
+export const fetchServer = (serverId) => dispatch => {
+  return ServerApiUtil.fetchServer(serverId).then(
     server => dispatch(receiveServer(server)),
   );
 };

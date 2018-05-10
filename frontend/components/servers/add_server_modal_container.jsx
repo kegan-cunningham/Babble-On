@@ -1,21 +1,19 @@
 import { connect } from 'react-redux';
-import { fetchServers, fetchServer, createServer } from '../../actions/server_actions';
+import { createServer, fetchServers, fetchServer} from '../../actions/server_actions';
 import { withRouter } from 'react-router-dom';
-import ServerIndex from './server_index';
+import AddServerModal from './add_server_modal';
 
 const mapStateToProps = (state, ownProps) => ({
-  servers: state.servers.servers,
-  currentServer: state.servers.currentServer,
-  currentUser: state.session.currentUser,
+  errors: state.errors.server
 });
 
 const mapDispatchToProps = dispatch => ({
+  createServer: (formServer) => dispatch(createServer(formServer)),
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (serverId) => dispatch(fetchServer(serverId)),
-  createServer: (server) => dispatch(createServer(server)),
 });
 
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ServerIndex));
+)(AddServerModal));
