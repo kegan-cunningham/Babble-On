@@ -65,7 +65,7 @@ class AddServerModal extends React.Component {
           <div className="modal-sections">
             <form className="createServer" onSubmit={this.handleSubmit("create")}>
               <h2 className="subtitle">CREATE</h2>
-              <p className="subtext">Create a new server and invite your friends.  Its free!</p>
+              <p className="subtext">Create a new server and invite your friends. Its free!</p>
               <div className="server-icon"></div>
               <input
                 className="text-input"

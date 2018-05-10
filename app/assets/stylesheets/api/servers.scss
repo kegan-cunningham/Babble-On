@@ -70,14 +70,16 @@
 
   .subtext {
     color: $ternary-color;
-    width: 200px;
+    width: 380px;
     text-align: center;
     margin: 5px 0px;
   }
 
   .text-input {
-    width: 200px;
+    width: 380px;
+    height: 50px;
     text-align: center;
+    margin-top: 5px;
     margin-bottom: 5px;
     background-color: $secondary-color;
   }
