@@ -11,12 +11,13 @@ const serverReducer = (oldState = defaultState, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_ALL_SERVERS:
-      console.log(action.servers)
       const servers = action.servers;
       newState = merge({}, oldState);
       newState.servers = action.servers;
       return newState;
     case RECEIVE_SERVER:
+      console.log('receiveServer');
+      console.log(action);
       const currentServer = action.currentServer;
       newState = merge({}, oldState);
       newState.currentServer = currentServer;

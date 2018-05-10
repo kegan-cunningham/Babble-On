@@ -8,6 +8,7 @@
 User.delete_all
 Server.delete_all
 Subscription.delete_all
+Channel.delete_all
 
 u1 = User.new(
     username: 'asai',
@@ -47,3 +48,9 @@ Subscription.create!(server_id: s1.id, user_id: u1.id)
 Subscription.create!(server_id: s2.id, user_id: u2.id)
 Subscription.create!(server_id: s3.id, user_id: u3.id)
 Subscription.create!(server_id: s4.id, user_id: u4.id)
+
+
+Channel.create!(name: "General", server_id: s1.id)
+Channel.create!(name: "General", server_id: s2.id)
+Channel.create!(name: "General", server_id: s3.id)
+Channel.create!(name: "General", server_id: s4.id)

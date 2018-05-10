@@ -4,15 +4,24 @@
   margin-top: 62px;
   min-height: 661px;
   overflow: hidden;
-  width: 10%;
+  width: 131px;
   background-color: $primary-color;
+  border-right: 1px solid $secondary-color;
 
   p {
     border-bottom: 1px solid $secondary-color;
     padding: 10px;
-    color: $secondary-color;
+    color: white;
+    font-weight: 600;
+    max-height: 40px;
     text-align: center;
+
+    &:hover {
+      background-color: $ternary-color;
+      color: $primary-color;
+    }
   }
+
 }
 
 .modal {

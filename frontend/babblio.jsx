@@ -7,6 +7,7 @@ import HeaderContainer from './components/header/header_container';
 import FooterContainer from './components/footer/footer_container';
 import UserShowContainer from './components/users/user_show_container';
 import ServerIndexContainer from './components/servers/server_index_container';
+import ChannelIndexContainer from './components/channels/channel_index_container';
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
 
     <AuthRoute exact path="/" component={ Login } />
     <ProtectedRoute exact path="/" component={ ServerIndexContainer } />
+    <ProtectedRoute path="/:serverId/:channelId" component={ ChannelIndexContainer } />
     <Route path="/users/:id" component={ UserShowContainer } />
     <footer>
       <FooterContainer/>

@@ -29,7 +29,13 @@ class ServerIndex extends React.Component {
     if (this.props.servers) {
       allServers = Object.values(this.props.servers).map(server => {
         return (
-          <p>{ server.name }</p>
+          <Link
+            key={server.id}
+            className='server-link'
+            to={`/${server.id}/${server.channels[0].id}`}
+          >
+            <p>{server.name}</p>
+          </Link>
         );
       });
     } else {

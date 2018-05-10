@@ -7,6 +7,8 @@ class Server < ApplicationRecord
   foreign_key: :owner_id,
   class_name: :User
 
+  has_many :channels, dependent: :destroy
+  
   has_many :subscriptions, dependent: :destroy
   has_many :users,
   through: :subscriptions
