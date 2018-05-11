@@ -4,11 +4,11 @@
   position: absolute;
   top: 62px;
   left: 132px;
-  background-color: $primary-color;
+  background-color: lighten($primary-color, 10%);
   width: 181px;
   min-height: 661px;
 
-  .channel-name {
+  p {
     padding: 10px;
     height: 19px;
     border-bottom: 1px solid $secondary-color;
@@ -18,6 +18,95 @@
     &:hover {
       background-color: $ternary-color;
       color: $primary-color;
+    }
+  }
+
+}
+
+.channel-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(23%, -56%);
+  background-color: $primary-color;
+  width: 600px;
+  height: 500px;
+  z-index: 9;
+  border: 1px solid $secondary-color;
+  border-radius: 10px;
+
+  .modal-title {
+    color: white;
+    margin: 15px 0px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 800;
+  }
+
+  .modal-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  form {
+    height: 170px;
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    border: 1px solid $secondary-color;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+  .createServer {
+    margin-left: 15px;
+  }
+
+  .joinServer {
+    margin-left: 15px;
+  }
+
+  .subtitle {
+    color: $secondary-color;
+    margin: 5px 0px;
+  }
+
+  .subtext {
+    color: $ternary-color;
+    width: 380px;
+    text-align: center;
+    margin: 5px 0px;
+  }
+
+  .text-input {
+    width: 380px;
+    height: 50px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: $secondary-color;
+  }
+
+  .submit {
+    background-color: $ternary-color;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: darken($ternary-color, 15%);
+      cursor: pointer;
     }
   }
 

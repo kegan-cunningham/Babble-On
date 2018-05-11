@@ -28,14 +28,12 @@ const removeChannel = (channelId) => {
 export const createChannel = (serverId, channel) => dispatch => {
   return ChannelApiUtil.createChannel(serverId, channel).then(
     channel => dispatch(receiveChannel(channel)),
-    error => dispatch(receiveChannelErrors(error.responseJSON))
   );
 };
 
 export const deleteChannel = (channelId) => dispatch => {
   return ChannelApiUtil.deleteChannel(channelId).then(
     channel => dispatch(removeChannel(channelId)),
-    error => dispatch(receiveChannelErrors(error.responseJSON))
   );
 };
 
@@ -48,6 +46,5 @@ export const fetchChannels = (serverId) => dispatch => {
 export const fetchChannel = (channelId) => dispatch => {
   return ChannelApiUtil.fetchChannel(channelId).then(
     channel => dispatch(receiveChannel(channel)),
-    error => dispatch(receiveChannelErrors(error.responseJSON))
   );
 };

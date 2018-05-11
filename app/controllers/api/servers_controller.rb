@@ -22,7 +22,7 @@ class Api::ServersController < ApplicationController
 
       if @server.save!
         Subscription.create(server_id: @server.id, user_id: current_user.id)
-        # Channel.create(name: "general", server_id: @server.id)
+        Channel.create(name: "General", server_id: @server.id)
         render 'api/servers/show'
       else
         render json: @server.errors.full_messages, status: 422

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import AddChannelContainer from './add_channel_modal_container';
 
 class ChannelIndex extends React.Component {
   constructor(props) {
@@ -16,6 +17,14 @@ class ChannelIndex extends React.Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.serverId !== nextProps.match.params.serverId) {
+      this.props.fetchServer(nextProps.match.params.serverId)
+      .then(() => this.props.fetchChannels(nextProps.match.params.serverId))
+      .then(() => this.setState(this.state))
+    }
+  }
+
   deleteChannel(channelId) {
     return () => this.props.deleteChannel(channelId)
       .then(() => this.props.getServer(this.props.currentServer.id))
@@ -28,6 +37,9 @@ class ChannelIndex extends React.Component {
 
   closeModal() {
     this.setState({ isModalOpen: false });
+    this.props.fetchServer(this.props.match.params.serverId).then(
+      () => {this.props.fetchChannels(this.props.match.params.serverId)}
+    );
   }
 
   render() {
@@ -77,11 +89,16 @@ class ChannelIndex extends React.Component {
         <ul className="channel-list">
           {channelList}
         </ul>
-        <div className="user-info">
-          <img onClick={() => this.openModal()} src={this.props.currentUser.image_url}></img>
-          <p>{this.props.currentUser.username}</p>
-          <Link className='logout' to='/' onClick={this.props.logout}>Logout</Link>
-        </div>
+        <Link
+          onClick={() => this.openModal()}
+          className="add-channel"
+          to={this.props.location.pathname}>
+          <p className="plus">+</p>
+        </Link>
+        <AddChannelContainer
+          isOpen={this.state.isModalOpen}
+          onClose={() => this.closeModal()}
+          />
       </div>
     );
   }

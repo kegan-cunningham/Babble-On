@@ -51,6 +51,8 @@ Subscription.create!(server_id: s4.id, user_id: u4.id)
 
 
 Channel.create!(name: "General", server_id: s1.id)
+Channel.create!(name: "Memes", server_id: s1.id)
+Channel.create!(name: "The Funk", server_id: s1.id)
 Channel.create!(name: "General", server_id: s2.id)
 Channel.create!(name: "General", server_id: s3.id)
 Channel.create!(name: "General", server_id: s4.id)

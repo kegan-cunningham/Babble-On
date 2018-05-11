@@ -42,13 +42,13 @@ class AddServerModal extends React.Component {
         this.props.createServer(this.state.create)
         .then(response => { server = response.currentServer; })
         .then(() => this.props.fetchServers())
-        // .then(() => this.props.history.push(`/${server.id}/${server.channels[0].id}`))
+        .then(() => this.props.history.push(`/${server.id}/${server.channels[0].id}`))
         .then(() => this.props.onClose());
       } else {
         this.props.joinServer(this.state.join)
         .then(response => { server = response.currentServer; })
         .then(() => this.props.fetchServers())
-        // .then(() => this.props.history.push(`/${server.id}/${server.channels[0].id}`))
+        .then(() => this.props.history.push(`/${server.id}/${server.channels[0].id}`))
         .then(() => this.props.onClose());
       }
     };
@@ -66,12 +66,11 @@ class AddServerModal extends React.Component {
             <form className="createServer" onSubmit={this.handleSubmit("create")}>
               <h2 className="subtitle">CREATE</h2>
               <p className="subtext">Create a new server and invite your friends. Its free!</p>
-              <div className="server-icon"></div>
               <input
                 className="text-input"
                 autoFocus
                 type="text"
-                placeholder="enter a server name"
+                placeholder="server name"
                 value={this.state.name}
                 onChange={this.handleInput("create")}
                 >
@@ -94,7 +93,6 @@ class AddServerModal extends React.Component {
           </div>
         </div>
         <div className="modal-screen" onClick={e => this.closeModal(e)}></div>
-        <div className="backdrop" onClick={e => this.closeModal(e)}></div>
       </div>
     );
   }
