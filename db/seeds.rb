@@ -9,6 +9,7 @@ User.delete_all
 Server.delete_all
 Subscription.delete_all
 Channel.delete_all
+Message.delete_all
 
 u1 = User.new(
     username: 'asai',
@@ -50,9 +51,24 @@ Subscription.create!(server_id: s3.id, user_id: u3.id)
 Subscription.create!(server_id: s4.id, user_id: u4.id)
 
 
-Channel.create!(name: "General", server_id: s1.id)
-Channel.create!(name: "Memes", server_id: s1.id)
-Channel.create!(name: "The Funk", server_id: s1.id)
-Channel.create!(name: "General", server_id: s2.id)
-Channel.create!(name: "General", server_id: s3.id)
-Channel.create!(name: "General", server_id: s4.id)
+c1 = Channel.create!(name: "General", server_id: s1.id)
+c2 = Channel.create!(name: "Memes", server_id: s1.id)
+c3 = Channel.create!(name: "The Funk", server_id: s1.id)
+c4 = Channel.create!(name: "General", server_id: s2.id)
+c5 = Channel.create!(name: "General", server_id: s3.id)
+c6 = Channel.create!(name: "General", server_id: s4.id)
+c7 = Channel.create!(name: "Music", server_id: s4.id)
+c8 = Channel.create!(name: "Yuka", server_id: s2.id)
+
+Message.create!(body: "The finest message ever crafted", author_id: u1.id, channel_id: c1.id)
+Message.create!(body: "It's a trap!", author_id: u2.id, channel_id: c2.id)
+Message.create!(body: "iijan iijan", author_id: u3.id, channel_id: c3.id)
+Message.create!(body: "I disagree with everything. Even this.", author_id: u4.id, channel_id: c4.id)
+Message.create!(body: "Wait what?", author_id: u1.id, channel_id: c5.id)
+Message.create!(body: "Exactly.", author_id: u2.id, channel_id: c6.id)
+Message.create!(body: "But why?", author_id: u3.id, channel_id: c7.id)
+Message.create!(body: "Absolutely not.", author_id: u4.id, channel_id: c8.id)
+Message.create!(body: "Just build looool 4head", author_id: u1.id, channel_id: c1.id)
+Message.create!(body: "Career Suicide", author_id: u2.id, channel_id: c3.id)
+Message.create!(body: "Jesus Christ K8", author_id: u3.id, channel_id: c5.id)
+Message.create!(body: "How dare you defy me.", author_id: u4.id, channel_id: c7.id)

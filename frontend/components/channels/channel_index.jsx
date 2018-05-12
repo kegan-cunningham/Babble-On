@@ -46,7 +46,6 @@ class ChannelIndex extends React.Component {
 
     let channelList;
     if (this.props.channels) {
-      console.log(this.props)
       if (this.props.currentServer.id === this.props.currentUser.myServer) {
         channelList = this.props.channels.map(channel => {
           const name = channel.name.replace(this.props.currentUser.username, "");
