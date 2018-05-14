@@ -7,13 +7,13 @@ class ChannelIndex extends React.Component {
     super(props);
 
     this.state = {
-      isModalOpen: false
+      isModalOpen: false,
     };
   }
 
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId).then(
-      () => {this.props.fetchChannels(this.props.match.params.serverId)}
+      () => {this.props.fetchChannels(this.props.match.params.serverId);}
     );
   }
 
@@ -21,7 +21,7 @@ class ChannelIndex extends React.Component {
     if (this.props.match.params.serverId !== nextProps.match.params.serverId) {
       this.props.fetchServer(nextProps.match.params.serverId)
       .then(() => this.props.fetchChannels(nextProps.match.params.serverId))
-      .then(() => this.setState(this.state))
+      .then(() => this.setState(this.state));
     }
   }
 
@@ -38,7 +38,7 @@ class ChannelIndex extends React.Component {
   closeModal() {
     this.setState({ isModalOpen: false });
     this.props.fetchServer(this.props.match.params.serverId).then(
-      () => {this.props.fetchChannels(this.props.match.params.serverId)}
+      () => {this.props.fetchChannels(this.props.match.params.serverId);}
     );
   }
 
@@ -48,7 +48,7 @@ class ChannelIndex extends React.Component {
     if (this.props.channels) {
       if (this.props.currentServer.id === this.props.currentUser.myServer) {
         channelList = this.props.channels.map(channel => {
-          const name = channel.name.replace(this.props.currentUser.username, "");
+          const name = channel.name.replace(this.props.currentUser.username, '');
           return (
             <NavLink
               key={channel.id}
@@ -61,7 +61,7 @@ class ChannelIndex extends React.Component {
       } else {
         let deleteChannel = null;
         channelList = this.props.channels.map(channel => {
-          if (this.props.currentServer.owner_id === this.props.currentUser.id
+         if (this.props.currentServer.owner_id === this.props.currentUser.id
             && this.props.channels.length > 1) {
               deleteChannel = (
                 <button

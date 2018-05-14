@@ -1,0 +1,27 @@
+@import '../variables';
+
+.messages {
+  position: absolute;
+  top: 62px;
+  left: 314px;
+  background-color: lighten($primary-color, 20%);
+  width: 100%;
+  height: 661px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.message-body {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.message-input {
+  background-color: white;
+  z-index: 3;
+  padding: 10px;
+  border-radius: 15%;
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
