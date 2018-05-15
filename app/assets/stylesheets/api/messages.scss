@@ -14,6 +14,8 @@
 .message-body {
   padding: 10px;
   margin-bottom: 5px;
+  border-bottom: 1px solid $ternary-color;
+  width: 900px;
 }
 
 .message-input {
