@@ -9,10 +9,7 @@ class ServerIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchServers(this.props.match.params.id).then(
-      () => {
-      }
-    );
+    this.props.fetchServers(this.props.match.params.id);
   }
 
   openModal() {
@@ -28,13 +25,18 @@ class ServerIndex extends React.Component {
     let allServers;
     if (this.props.servers) {
       allServers = Object.values(this.props.servers).map(server => {
+        let colorStyle;
+        if (server === null || this.props.currentServer === null){
+        } else if (server.id === this.props.currentServer.id){
+          colorStyle = { backgroundColor: '#2a473b' };
+        }
         return (
           <Link
             key={server.id}
             className='server-link'
             to={`/${server.id}/${server.channels[0].id}`}
           >
-            <p>{server.name}</p>
+            <p style={colorStyle}>{server.name}</p>
           </Link>
         );
       });

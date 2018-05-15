@@ -30,12 +30,34 @@ export default class Messages extends React.Component {
     }
   }
 
+  parseTime(message){
+    let amPm = ' AM';
+    let messageTime = "";
+    let messageTimeHour;
+    messageTimeHour = message.created_at.slice(11,13);
+    if (parseInt(messageTimeHour) > 12){
+      amPm = ' PM';
+      messageTimeHour = (parseInt(messageTimeHour) % 12).toString();
+    }
+    messageTime += message.created_at.slice(13, 19);
+    return messageTimeHour + messageTime + amPm;
+  }
+
   render() {
     let messages = [];
     if (this.props.messages != null) messages = this.props.messages.slice().reverse();
     messages = messages.map(message => {
+      const time = this.parseTime(message);
       return(
         <div className="message-body">
+          <section className="message-info">
+            <div className="message-author">
+              { message.author }
+            </div>
+            <div className="message-created-at">
+               at { time }
+            </div>
+          </section>
           • { message.body }
         </div>
       );

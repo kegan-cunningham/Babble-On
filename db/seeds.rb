@@ -19,23 +19,23 @@ u1 = User.new(
   )
   u1.save!
 u2 = User.new(
-    username: 'asai2',
-    firstname: 'Kegan2',
-    lastname: 'Cunningham2',
+    username: 'CaptainExample',
+    firstname: 'Captain',
+    lastname: 'Example',
     password: 'asdfasdf2',
   )
   u2.save!
 u3 = User.new(
-    username: 'asai3',
-    firstname: 'Kegan3',
-    lastname: 'Cunningham3',
+    username: 'DrExample',
+    firstname: 'Dr',
+    lastname: 'Example',
     password: 'asdfasdf3',
   )
   u3.save!
 u4 = User.new(
-    username: 'asai4',
-    firstname: 'Kegan4',
-    lastname: 'Cunningham4',
+    username: 'MrExample',
+    firstname: 'Mr',
+    lastname: 'Example',
     password: 'asdfasdf4',
   )
   u4.save!
@@ -62,30 +62,30 @@ c8 = Channel.create!(name: "Yuka", server_id: s2.id)
 
 Message.create!(body: "The finest message ever crafted", author_id: u1.id, channel_id: c1.id)
 Message.create!(body: "Hey dude, what's up?", author_id: u1.id, channel_id: c1.id)
-Message.create!(body: "Because we walked here.", author_id: u1.id, channel_id: c1.id)
+Message.create!(body: "Because we walked here.", author_id: u4.id, channel_id: c1.id)
 Message.create!(body: "This is a genuine message, not a seed.", author_id: u1.id, channel_id: c3.id)
 Message.create!(body: "The person above me is lying", author_id: u1.id, channel_id: c2.id)
-Message.create!(body: "The person below me is lying", author_id: u1.id, channel_id: c2.id)
-Message.create!(body: "What's the difference?!", author_id: u1.id, channel_id: c2.id)
+Message.create!(body: "The person below me is lying", author_id: u2.id, channel_id: c2.id)
+Message.create!(body: "What's the difference?!", author_id: u3.id, channel_id: c2.id)
 Message.create!(body: "It's a trap!", author_id: u2.id, channel_id: c2.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u1.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u2.id, channel_id: c3.id)
 Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u4.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u1.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u2.id, channel_id: c3.id)
 Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u4.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u1.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u2.id, channel_id: c3.id)
 Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u4.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u1.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u2.id, channel_id: c3.id)
 Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
-Message.create!(body: "Blah blah blah filler text.", author_id: u3.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u4.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u1.id, channel_id: c3.id)
+Message.create!(body: "Blah blah blah filler text.", author_id: u2.id, channel_id: c3.id)
 Message.create!(body: "I disagree with everything. Even this.", author_id: u4.id, channel_id: c4.id)
 Message.create!(body: "Wait what?", author_id: u1.id, channel_id: c5.id)
 Message.create!(body: "Exactly.", author_id: u2.id, channel_id: c6.id)

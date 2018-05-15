@@ -25,3 +25,17 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.message-info {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 5px;
+}
+
+.message-created-at {
+  margin-left: 5px;
+}
+
+.message-author {
+  font-weight: 900;
+}

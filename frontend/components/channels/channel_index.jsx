@@ -43,45 +43,35 @@ class ChannelIndex extends React.Component {
   }
 
   render() {
-
     let channelList;
     if (this.props.channels) {
-      if (this.props.currentServer.id === this.props.currentUser.myServer) {
-        channelList = this.props.channels.map(channel => {
-          const name = channel.name.replace(this.props.currentUser.username, '');
+      let deleteChannel = null;
+      channelList = this.props.channels.map(channel => {
+        let colorStyle;
+        if (channel === null || this.props.currentChannel === null){
+        } else if (channel.id === this.props.currentChannel.id){
+          colorStyle = { backgroundColor: '#2a473b' };
+        }
+       if (this.props.currentServer.owner_id === this.props.currentUser.id
+          && this.props.channels.length > 1) {
+            deleteChannel = (
+              <button
+                className="remove-channel-button"
+                onClick={this.deleteChannel(channel.id)}>
+                <i className="fas fa-times"></i>
+              </button>
+            );
+          }
           return (
             <NavLink
               key={channel.id}
               className="channel-button"
               to={`/${this.props.currentServer.id}/${channel.id}`}>
-              <p className="channel-name"> { channel.name }</p>
-            </NavLink>
+              <p style={ colorStyle } className="channel-name"> { channel.name } { deleteChannel }</p>
+              </NavLink>
           );
         });
-      } else {
-        let deleteChannel = null;
-        channelList = this.props.channels.map(channel => {
-         if (this.props.currentServer.owner_id === this.props.currentUser.id
-            && this.props.channels.length > 1) {
-              deleteChannel = (
-                <button
-                  className="remove-channel-button"
-                  onClick={this.deleteChannel(channel.id)}>
-                  <i className="fas fa-times"></i>
-                </button>
-              );
-            }
-            return (
-              <NavLink
-                key={channel.id}
-                className="channel-button"
-                to={`/${this.props.currentServer.id}/${channel.id}`}>
-                <p className="channel-name"> { channel.name } { deleteChannel }</p>
-                </NavLink>
-            );
-          });
       }
-    }
 
     return (
       <div className="channel-index">
