@@ -11,7 +11,7 @@ import ChannelIndexContainer from './components/channels/channel_index_container
 import MessagesContainer from './components/messages/messages_container';
 
 const App = () => (
-  <div>
+  <div className="body">
     <header>
       <section className="header-container">
         <h1 className="header-logo"><Link to={'/'}>Babblio</Link></h1>
