@@ -36,7 +36,7 @@ class ServerIndex extends React.Component {
             className='server-link'
             to={`/${server.id}/${server.channels[0].id}`}
           >
-            <p style={colorStyle}>{server.name}</p>
+            <p className='server-name' style={colorStyle}>{server.name}</p>
           </Link>
         );
       });
@@ -51,7 +51,7 @@ class ServerIndex extends React.Component {
           onClick={() => this.openModal()}
           className="add-server"
           to={this.props.location.pathname}>
-          <p className="plus">+</p>
+          <p className="server-name">+</p>
         </Link>
         <AddServerContainer
           isOpen={this.state.isModalOpen}

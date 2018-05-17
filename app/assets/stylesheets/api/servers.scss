@@ -9,7 +9,7 @@
   background-color: lighten($primary-color, 5%);
   border-right: 1px solid $secondary-color;
 
-  p {
+  .server-name {
     border-bottom: 1px solid $secondary-color;
     padding: 10px;
     color: white;
