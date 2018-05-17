@@ -8,4 +8,8 @@ class Message < ApplicationRecord
   class_name: :User
 
   belongs_to :channel
+
+  after_create_commit do
+    NewMessageJob.perform_later(self)
+  end
 end

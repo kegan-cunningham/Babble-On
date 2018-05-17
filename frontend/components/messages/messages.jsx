@@ -6,8 +6,8 @@ export default class Messages extends React.Component {
 
   constructor(props) {
     super(props);
-    const channelId = this.props.currentChannel != null ? this.props.currentChannel.id : null;
-    const userId = this.props.currentUser != null ? this.props.currentUser.id : null;
+    const channelId = this.props.currentChannel != null ? this.props.currentChannel : null;
+    const userId = this.props.currentUser != null ? this.props.currentUser : null;
     this.state = {
       currentChatMessage: '',
       currentChannel: channelId,
@@ -48,8 +48,8 @@ export default class Messages extends React.Component {
       .then(() => this.props.fetchChannel(nextProps.match.params.channelId))
       .then(() => this.setState(this.state));
     }
-    const channelId = this.props.currentChannel != null ? this.props.currentChannel.id : null;
-    const userId = this.props.currentUser != null ? this.props.currentUser.id : null;
+    const channelId = nextProps.currentChannel != null ? nextProps.currentChannel: null;
+    const userId = nextProps.currentUser != null ? nextProps.currentUser: null;
     this.setState({
             currentChatMessage: '',
             currentChannel: channelId,
@@ -73,6 +73,7 @@ export default class Messages extends React.Component {
            }));
       },
       create: function(chatContent) {
+        console.log(chatContent)
         this.perform('create', {
           body: chatContent.currentChatMessage,
           author_id: chatContent.currentUser.currentUser.id,
@@ -128,7 +129,6 @@ export default class Messages extends React.Component {
       this.setState({
         currentChatMessage: ''
       })
-      // this.refetch();
     }
   }
 
