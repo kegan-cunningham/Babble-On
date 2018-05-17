@@ -1,4 +1,4 @@
-class SubscriptionsController < ApplicationController
+class Api::SubscriptionsController < ApplicationController
   before_action :require_logged_in
 
   def create

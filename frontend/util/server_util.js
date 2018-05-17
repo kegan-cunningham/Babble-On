@@ -19,3 +19,26 @@ export const createServer = (server) => {
     data: { server }
   });
 };
+
+export const deleteServer = (serverId) => {
+  return $.ajax({
+    url: `api/servers/${serverId}`,
+    method: "DELETE",
+  });
+};
+
+export const joinServer = (serverName) => {
+  return $.ajax({
+    url: "api/subscriptions",
+    method: "POST",
+    data: serverName
+  });
+};
+
+export const leaveServer = (subscriptionDetails) => {
+  return $.ajax({
+    url: "api/subscriptions/delete",
+    method: "DELETE",
+    data: subscriptionDetails
+  });
+};
