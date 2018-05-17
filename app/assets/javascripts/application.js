@@ -12,5 +12,6 @@
 //
 //= require rails-ujs
 //= require_tree .
+//= require cable
 //= require jquery
 //= require jquery_ujs

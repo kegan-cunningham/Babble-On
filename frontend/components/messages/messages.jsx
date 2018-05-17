@@ -1,24 +1,44 @@
 import React from 'react';
+import ActionCable from 'actioncable';
 import MessagesContainer from './messages_container';
 
 export default class Messages extends React.Component {
 
   constructor(props) {
     super(props);
+    const channelId = this.props.currentChannel != null ? this.props.currentChannel.id : null;
+    const userId = this.props.currentUser != null ? this.props.currentUser.id : null;
     this.state = {
-      chatMessage: "",
+      currentChatMessage: '',
+      currentChannel: channelId,
+      currentUser: userId,
+      messages: this.props.messages,
+      success: true,
+      selected: false
     };
   }
 
-  handleInput() {
-    return (e) => {
-      this.setState({ chatMessage: e.target.value });
-    };
+  componentWillMount() {
+    this.createWebSocket();
   }
+
+  componentWillUnmount() {
+    this.deleteWebSocket();
+  }
+
 
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId).then(
-      () => {this.props.fetchChannel(this.props.match.params.channelId);}
+      () => {
+        this.props.fetchChannel(this.props.match.params.channelId).then(
+          () => {
+            this.setState({ messages: this.props.messages });
+            this.setState({ currentChannel: this.props.currentChannel });
+            this.setState({ currentUser: this.props.currentUser });
+            console.log('CDM')
+          }
+        )
+      }
     )
   }
 
@@ -28,6 +48,42 @@ export default class Messages extends React.Component {
       .then(() => this.props.fetchChannel(nextProps.match.params.channelId))
       .then(() => this.setState(this.state));
     }
+    const channelId = this.props.currentChannel != null ? this.props.currentChannel.id : null;
+    const userId = this.props.currentUser != null ? this.props.currentUser.id : null;
+    this.setState({
+            currentChatMessage: '',
+            currentChannel: channelId,
+            currentUser: userId,
+            messages: nextProps.messages,
+          });
+  }
+
+  createWebSocket() {
+    this.socket = ActionCable.createConsumer();
+    this.chat = this.socket.subscriptions.create({
+      channel: 'ChatSocket'
+    }, {
+      connected: () => {},
+      received: (data) => {
+        const currentChatMessage = this.state.currentChatMessage;
+        this.props.fetchChannel(this.props.currentChannel.id)
+          .then(() => this.setState({
+             currentChatMessage,
+             messages: this.props.messages,
+           }));
+      },
+      create: function(chatContent) {
+        this.perform('create', {
+          body: chatContent.currentChatMessage,
+          author_id: chatContent.currentUser.currentUser.id,
+          channel_id: chatContent.currentChannel.id
+        });
+      }
+    });
+  }
+
+  deleteWebSocket() {
+    this.socket.subscriptions.remove(this.chat);
   }
 
   parseTime(message){
@@ -43,9 +99,42 @@ export default class Messages extends React.Component {
     return messageTimeHour + messageTime + amPm;
   }
 
+  //
+  handleInput(e) {
+    this.setState({
+      currentChatMessage: e.target.value
+    });
+  }
+
+  refetch() {
+    this.props.fetchServer(this.props.match.params.serverId).then(
+      () => {
+        this.props.fetchChannel(this.props.match.params.channelId).then(
+          () => {
+            this.setState({ messages: this.props.messages });
+            this.setState({ currentChannel: this.props.currentChannel });
+            this.setState({ currentUser: this.props.currentUser });
+            console.log('refetch');
+          }
+        )
+      }
+    )
+  }
+
+  handleSubmit(event) {
+    if(event.key === 'Enter') {
+      event.preventDefault();
+      this.chat.create(this.state);
+      this.setState({
+        currentChatMessage: ''
+      })
+      // this.refetch();
+    }
+  }
+
   render() {
     let messages = [];
-    if (this.props.messages != null) messages = this.props.messages.slice().reverse();
+    if (this.state.messages != null) messages = this.state.messages.slice();
     messages = messages.map(message => {
       const time = this.parseTime(message);
       return(
@@ -70,8 +159,9 @@ export default class Messages extends React.Component {
           autoFocus
           type="text"
           placeholder="Type a message to send"
-          value={this.state.chatMessage}
-          onChange={this.handleInput("")}
+          value={this.state.currentChatMessage}
+          onKeyPress={ (e) => this.handleSubmit(e) }
+          onChange={ (e) => this.handleInput(e) }
           />
       </div>
     );
