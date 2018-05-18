@@ -19,7 +19,6 @@ class Api::ServersController < ApplicationController
     if logged_in?
       @server = Server.new(server_params)
       @server.owner_id = current_user.id
-
       if @server.save!
         Subscription.create(server_id: @server.id, user_id: current_user.id)
         Channel.create(name: "General", server_id: @server.id)

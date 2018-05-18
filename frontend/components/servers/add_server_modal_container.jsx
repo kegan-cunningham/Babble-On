@@ -8,9 +8,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createServer: (formServer) => dispatch(createServer(formServer)),
-  fetchServers: () => dispatch(fetchServers()),
+  createServer: (serverInfo) => dispatch(createServer(serverInfo)),
   fetchServer: (serverId) => dispatch(fetchServer(serverId)),
+  fetchServers: () => dispatch(fetchServers()),
   joinServer: (serverName) => dispatch(joinServer(serverName)),
 });
 

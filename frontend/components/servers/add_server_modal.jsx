@@ -34,6 +34,14 @@ class AddServerModal extends React.Component {
     };
   }
 
+  renderErrors() {
+    return (
+      this.props.errors.map( (error, key) => {
+        return <li className='errors' key={key} >{ error }</li>;
+      })
+    );
+  }
+
   handleSubmit(type) {
     return (e) => {
       e.preventDefault();
@@ -77,6 +85,9 @@ class AddServerModal extends React.Component {
               </input>
               <input className="submit" type="submit" value="Create a Server"></input>
             </form>
+            <ul className="server-errors">
+             {this.renderErrors()}
+           </ul>
             <form className="joinServer" onSubmit={this.handleSubmit("join")}>
               <h2 className="subtitle">JOIN</h2>
               <p className="subtext">Enter a Server Name and join your friend's server.</p>

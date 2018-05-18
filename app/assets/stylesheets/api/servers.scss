@@ -25,6 +25,10 @@
 
 }
 
+.server-errors{
+  height: 20px;
+}
+
 .modal {
   position: absolute;
   top: 50%;
@@ -32,7 +36,7 @@
   transform: translate(-50%, -50%);
   background-color: $primary-color;
   width: 600px;
-  height: 500px;
+  height: 520px;
   z-index: 9;
   border: 1px solid $secondary-color;
   border-radius: 10px;

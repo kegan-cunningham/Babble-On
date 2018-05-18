@@ -113,6 +113,12 @@ html {
   overflow-x:hidden
 }
 
+.errors {
+  color: lightblue;
+  font-weight: 750;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
 .footer {
   width: 100%;
   position: fixed;
