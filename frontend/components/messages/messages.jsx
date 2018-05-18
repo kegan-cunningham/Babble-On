@@ -35,7 +35,6 @@ export default class Messages extends React.Component {
             this.setState({ messages: this.props.messages });
             this.setState({ currentChannel: this.props.currentChannel });
             this.setState({ currentUser: this.props.currentUser });
-            console.log('CDM')
           }
         )
       }
@@ -73,7 +72,6 @@ export default class Messages extends React.Component {
            }));
       },
       create: function(chatContent) {
-        console.log(chatContent)
         this.perform('create', {
           body: chatContent.currentChatMessage,
           author_id: chatContent.currentUser.currentUser.id,
@@ -115,7 +113,6 @@ export default class Messages extends React.Component {
             this.setState({ messages: this.props.messages });
             this.setState({ currentChannel: this.props.currentChannel });
             this.setState({ currentUser: this.props.currentUser });
-            console.log('refetch');
           }
         )
       }

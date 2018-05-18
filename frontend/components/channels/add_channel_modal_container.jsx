@@ -5,6 +5,7 @@ import AddChannelModal from './add_channel_modal';
 
 const mapStateToProps = (state, ownProps) => ({
   currentServer: state.servers.currentServer,
+  errors: state.errors.channel
 });
 
 const mapDispatchToProps = dispatch => ({

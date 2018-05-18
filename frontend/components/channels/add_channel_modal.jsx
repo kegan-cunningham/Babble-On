@@ -41,6 +41,14 @@ class AddChannelModal extends React.Component {
     };
   }
 
+  renderErrors() {
+    return (
+      this.props.errors.map( (error, key) => {
+        return <li className='errors' key={key} >{ error }</li>;
+      })
+    );
+  }
+
   render () {
     if (this.props.isOpen === false) {
       return null;
@@ -64,6 +72,9 @@ class AddChannelModal extends React.Component {
               </input>
               <input className="submit" type="submit" value="Create a Channel"></input>
             </form>
+            <ul className="server-errors">
+             {this.renderErrors()}
+           </ul>
           </div>
         </div>
         <div className="modal-screen" onClick={e => this.closeModal(e)}></div>

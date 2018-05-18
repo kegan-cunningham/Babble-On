@@ -33,6 +33,7 @@ class ChannelIndex extends React.Component {
 
   openModal() {
     this.setState({ isModalOpen: true });
+    this.props.clearErrors();
   }
 
   closeModal() {
@@ -82,7 +83,7 @@ class ChannelIndex extends React.Component {
           onClick={() => this.openModal()}
           className="add-channel"
           to={this.props.location.pathname}>
-          <p className="plus">+</p>
+          <p className="channel-name">+</p>
         </Link>
         <AddChannelContainer
           isOpen={this.state.isModalOpen}

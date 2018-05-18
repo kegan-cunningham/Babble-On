@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ChannelIndex from './channel_index';
 import { logout } from '../../actions/session_actions';
 import { fetchServers, fetchServer, deleteServer } from '../../actions/server_actions';
-import { fetchChannel, fetchChannels, createChannel, deleteChannel } from '../../actions/channel_actions';
+import { fetchChannel, fetchChannels, createChannel, deleteChannel, clearErrors } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
@@ -21,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
   fetchChannel: (channelId) => dispatch(fetchChannel(channelId)),
   createChannel: (serverId, channel) => dispatch(createChannel(serverId, channel)),
   deleteChannel: (channelId) => dispatch(deleteChannel(channelId)),
+  clearErrors: () => dispatch(clearErrors()),
 });
 
 export default withRouter(connect(
