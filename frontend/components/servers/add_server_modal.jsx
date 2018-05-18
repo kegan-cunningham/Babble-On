@@ -35,6 +35,7 @@ class AddServerModal extends React.Component {
   }
 
   renderErrors() {
+    console.log(this.props.errors)
     return (
       this.props.errors.map( (error, key) => {
         return <li className='errors' key={key} >{ error }</li>;

@@ -5,7 +5,7 @@ const serverErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SERVER_ERRORS:
-    console.log(action)
+      console.log(action)
       return action.errors;
     default:
       return state;
