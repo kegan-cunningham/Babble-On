@@ -5,14 +5,6 @@ class Header extends React.Component {
 
   constructor (props) {
     super(props);
-
-    this.handleProfileLink = this.handleProfileLink.bind(this);
-  }
-
-  handleProfileLink () {
-    this.props.clearSessionErrors();
-    const userId = this.props.currentUser.id;
-    this.props.history.push(`/users/${userId}`);
   }
 
   render () {
@@ -50,14 +42,12 @@ class Header extends React.Component {
 
 const SessionLinks = (props) => (
   <nav className="header-session-links">
-    <button>Join</button>
-    <button>Log in</button>
   </nav>
 );
 
 const ProfilePhotoLinks = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
   <section className="header-photo-links">
-    <div onClick={toggleDropdown} className="dropdown-toggle">
+    {/*<div onClick={toggleDropdown} className="dropdown-toggle">
       <i>
         <div className="hamburger-bar"></div>
         <div className="hamburger-bar"></div>
@@ -67,14 +57,11 @@ const ProfilePhotoLinks = ({ currentUser, logout, dropdownOpen, toggleDropdown, 
         <img src={currentUser.imageUrl}></img>
       </div>
     </div>
-    <ul className={dropdownOpen ? 'dropdown' : 'hidden'}>
-      <button className="header-button" onClick={
-          function(event){ toggleDropdown(); logout()}
-        }>Log Out</button>
-      <button className="header-button" onClick={
-          function(event){ toggleDropdown(); handleProfileLink()}
-        }>My Profile</button>
-    </ul>
+    <ul className={dropdownOpen ? 'dropdown' : 'hidden'}>*/}
+    {/*}</ul>*/}
+    <button className="logout-button" onClick={
+        function(event){ toggleDropdown(); logout()}
+      }>Log Out</button>
   </section>
 );
 
