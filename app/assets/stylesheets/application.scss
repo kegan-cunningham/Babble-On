@@ -272,7 +272,7 @@ body {
 
 
 .logout-button {
-  background-color: #876b3c;
+  background-color: $ternary-color;
   min-width: 100px;
   color: white;
   border-radius: 3px;
@@ -284,11 +284,11 @@ body {
   margin-right: -20px;
   text-decoration: none;
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  border: 1px solid #876b3c;
+  border: 1px solid $ternary-color;
   width: 100%;
   transition: background-color 0.3s ease, border-color 0.3s ease;
   &:hover {
-    background-color: #aa874c;
-    border: 1px solid #aa874c;
+    background-color: darken($ternary-color, 15%);
+    border-color: darken($ternary-color, 15%);
   }
 }
