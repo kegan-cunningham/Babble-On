@@ -16,6 +16,12 @@ class AddChannelModal extends React.Component {
      });
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      name: "" ,
+     });
+  }
+
   closeModal(e) {
     e.preventDefault();
     if (this.props.onClose) {
