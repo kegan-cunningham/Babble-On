@@ -10,10 +10,31 @@
   min-height: 650px;
   height: 90%;
   transition: background-color 0.3s ease, color 0.3s ease;
-  
+
+  .channel-button {
+    display: flex;
+  }
+
   .channel-name {
     padding: 10px;
     height: 19px;
+    width: 90%;
+    margin-right: -40px;
+    border-bottom: 1px solid $secondary-color;
+    color: $secondary-color;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: $ternary-color;
+      color: $primary-color;
+    }
+  }
+
+  .channel-delete {
+    padding: 10px;
+    height: 19px;
+    width: 10%;
     border-bottom: 1px solid $secondary-color;
     color: $secondary-color;
     text-align: center;
