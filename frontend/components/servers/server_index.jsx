@@ -14,6 +14,10 @@ class ServerIndex extends React.Component {
     this.props.fetchServers();
   }
 
+  componentWillReceiveProps() {
+    this.props.fetchServers();
+  }
+
   openModal() {
     this.setState({ isModalOpen: true });
     this.props.clearErrors();
@@ -67,7 +71,6 @@ class ServerIndex extends React.Component {
     } else {
       allServers = <p>No servers found</p>
     }
-
     return (
       <div className="servers">
         {allServers}

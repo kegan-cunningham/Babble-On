@@ -10,6 +10,13 @@
   min-height: 650px;
   height: 90%;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: scroll;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+
+  &::-webkit-scrollbar {
+      display: none;
+  }
 
   .channel-button {
     display: flex;
@@ -29,6 +36,10 @@
       background-color: $ternary-color;
       color: $primary-color;
     }
+  }
+
+  .add-channel p{
+    margin-bottom: 26px;
   }
 
   .channel-delete {
