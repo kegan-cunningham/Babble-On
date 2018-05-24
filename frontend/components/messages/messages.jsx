@@ -39,6 +39,9 @@ export default class Messages extends React.Component {
         )
       }
     )
+    .then(
+      () => {document.getElementsByClassName('messages')[0].classList.add('height-transition')}
+    );
   }
 
   componentWillReceiveProps(nextProps) {

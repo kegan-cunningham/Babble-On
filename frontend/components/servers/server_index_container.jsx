@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchServers, fetchServer, createServer, clearErrors } from '../../actions/server_actions';
+import { deleteServer, fetchServers, fetchServer, createServer, clearErrors } from '../../actions/server_actions';
 import { withRouter } from 'react-router-dom';
 import ServerIndex from './server_index';
 
@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => ({
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (serverId) => dispatch(fetchServer(serverId)),
   createServer: (server) => dispatch(createServer(server)),
+  deleteServer: (serverId) => dispatch(deleteServer(serverId)),
   clearErrors: () => dispatch(clearErrors()),
 });
 

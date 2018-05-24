@@ -3,6 +3,7 @@ import * as ServerApiUtil from '../util/server_util';
 export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS";
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
+export const REMOVE_SERVER = "REMOVE_SERVER";
 
 export const receiveServers = (servers) => {
   return {
@@ -67,6 +68,13 @@ export const joinServer = (serverName) => dispatch => {
 export const leaveServer = (subscriptionDetails) => dispatch => {
   return ServerApiUtil.leaveServer(subscriptionDetails).then(
     servers => dispatch(receiveServers(servers)),
+    error => dispatch(receiveServerErrors(error.responseJSON))
+  );
+};
+
+export const deleteServer = (serverId) => dispatch => {
+  return ServerApiUtil.deleteServer(serverId).then(
+    server => dispatch(removeServer(serverId)),
     error => dispatch(receiveServerErrors(error.responseJSON))
   );
 };

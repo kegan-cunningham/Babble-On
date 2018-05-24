@@ -12,8 +12,12 @@ class ChannelIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchServer(this.props.match.params.serverId).then(
+    this.props.fetchServer(this.props.match.params.serverId)
+    .then(
       () => {this.props.fetchChannels(this.props.match.params.serverId);}
+    )
+    .then(
+      () => {document.getElementsByClassName('channel-index')[0].classList.add('width-transition')}
     );
   }
 
@@ -51,7 +55,7 @@ class ChannelIndex extends React.Component {
         let colorStyle;
         if (channel === null || this.props.currentChannel === null){
         } else if (channel.id === this.props.currentChannel.id){
-          colorStyle = { backgroundColor: '#2a473b' };
+          colorStyle = { backgroundColor: '#2a473b'};
         }
        if (this.props.currentServer.owner_id === this.props.currentUser.currentUser.id
           && this.props.channels.length > 1) {
@@ -59,7 +63,7 @@ class ChannelIndex extends React.Component {
               <button
                 className="remove-channel-button"
                 onClick={this.deleteChannel(channel.id)}>
-                ...
+                x
               </button>
             );
           }
@@ -68,7 +72,7 @@ class ChannelIndex extends React.Component {
               key={channel.id}
               className="channel-button"
               to={`/${this.props.currentServer.id}/${channel.id}`}>
-              <p style={ colorStyle } className="channel-name"> { channel.name } </p>
+              <p style={ colorStyle } className="channel-name"> { channel.name.length < 14 ? channel.name : channel.name.slice(0, 13) + '...' } </p>
               <p style={ colorStyle } className="channel-delete"> { deleteChannel } </p>
 
               </NavLink>

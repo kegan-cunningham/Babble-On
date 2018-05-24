@@ -5,15 +5,24 @@
   min-height: 650px;
   height: 100%;
   overflow: hidden;
-  width: 131px;
+  width: 161px;
   background-color: lighten($primary-color, 5%);
   border-right: 1px solid $secondary-color;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  .server-button {
+    display: flex;
+  }
+
+  .server-link {
+    width: 90%;
+  }
 
   .server-name {
     border-bottom: 1px solid $secondary-color;
     padding: 10px;
     color: white;
+    margin-right: -40px;
     font-weight: 600;
     max-height: 40px;
     text-align: center;
@@ -24,6 +33,26 @@
       background-color: $ternary-color;
       color: $primary-color;
     }
+  }
+
+  .add-server p {
+    margin-right: 0px;
+  }
+
+
+  .server-delete {
+    padding: 10px;
+    height: 19px;
+    width: 10%;
+    border-bottom: 1px solid $secondary-color;
+    color: darkred;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    // &:hover {
+    //   background-color: $ternary-color;
+    //   color: $primary-color;
+    // }
   }
 
 }

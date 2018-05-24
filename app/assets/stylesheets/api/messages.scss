@@ -3,12 +3,11 @@
 .messages {
   position: absolute;
   top: 62px;
-  left: 314px;
+  left: 344px;
   background-color: lighten($primary-color, 20%);
   width: 100%;
-  height: 661px;
+  height: 0px;
   padding: 20px;
-  overflow: scroll;
 }
 
 .message-body {
@@ -44,4 +43,9 @@
   margin-left: -2px;
   font-weight: 900;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.height-transition {
+  height: 661px;
+  transition: 1.2s height ease;
 }

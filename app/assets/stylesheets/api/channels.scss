@@ -3,10 +3,10 @@
 .channel-index {
   position: absolute;
   top: 62px;
-  left: 132px;
+  left: 162px;
   background-color: lighten($primary-color, 10%);
   border-right: 1px solid $secondary-color;
-  width: 181px;
+  width: 0px;
   min-height: 650px;
   height: 90%;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -18,7 +18,7 @@
   .channel-name {
     padding: 10px;
     height: 19px;
-    width: 90%;
+    width: 89%;
     margin-right: -40px;
     border-bottom: 1px solid $secondary-color;
     color: $secondary-color;
@@ -36,16 +36,21 @@
     height: 19px;
     width: 10%;
     border-bottom: 1px solid $secondary-color;
-    color: $secondary-color;
+    color: darkred;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 
-    &:hover {
-      background-color: $ternary-color;
-      color: $primary-color;
-    }
+    // &:hover {
+    //   background-color: $ternary-color;
+    //   color: $primary-color;
+    // }
   }
 
+}
+
+.width-transition {
+  width: 181px;
+  transition: 1s width ease;
 }
 
 .channel-modal {
