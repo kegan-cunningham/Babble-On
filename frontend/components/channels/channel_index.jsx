@@ -50,8 +50,8 @@ class ChannelIndex extends React.Component {
   render() {
     let channelList;
     if (this.props.channels) {
-      let deleteChannel = null;
       channelList = this.props.channels.map(channel => {
+        let deleteChannel = null;
         let colorStyle;
         if (channel === null || this.props.currentChannel === null){
         } else if (channel.id === this.props.currentChannel.id){

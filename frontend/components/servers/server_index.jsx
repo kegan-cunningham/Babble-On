@@ -33,15 +33,14 @@ class ServerIndex extends React.Component {
   render() {
     let serverList;
     let allServers;
-    let deleteServer = null;
     if (this.props.servers) {
       allServers = Object.values(this.props.servers).map(server => {
+        let deleteServer = null;
         let colorStyle;
         if (server === null || this.props.currentServer === null){
         } else if (server.id === this.props.currentServer.id){
           colorStyle = { backgroundColor: '#2a473b' };
         }
-
         if (server.owner_id === this.props.currentUser.currentUser.id) {
           deleteServer = (
             <button
