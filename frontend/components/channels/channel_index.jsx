@@ -14,9 +14,6 @@ class ChannelIndex extends React.Component {
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId)
     .then(
-      () => {this.props.fetchChannels(this.props.match.params.serverId);}
-    )
-    .then(
       () => {document.getElementsByClassName('channel-index')[0].classList.add('width-transition')}
     );
   }
@@ -24,8 +21,6 @@ class ChannelIndex extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.serverId !== nextProps.match.params.serverId) {
       this.props.fetchServer(nextProps.match.params.serverId)
-      .then(() => this.props.fetchChannels(nextProps.match.params.serverId))
-      .then(() => this.setState(this.state));
     }
   }
 
@@ -50,6 +45,15 @@ class ChannelIndex extends React.Component {
   render() {
     let channelList;
     if (this.props.channels) {
+      channelList = this.props.channels;
+      function sortByKey(array, key) {
+        return array.sort(function(a, b) {
+          var x = a[key]; var y = b[key];
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+      }
+      channelList = sortByKey(channelList, 'id');
+      console.log(channelList)
       channelList = this.props.channels.map(channel => {
         let deleteChannel = null;
         let colorStyle;
@@ -81,21 +85,23 @@ class ChannelIndex extends React.Component {
       }
 
     return (
-      <div className="channel-index">
-        <ul className="channel-list">
-          {channelList}
-        </ul>
-        <Link
-          onClick={() => this.openModal()}
-          className="add-channel"
-          to={this.props.location.pathname}>
-          <p className="channel-name">+</p>
-        </Link>
+      <section className="channel-container">
+        <div className="channel-index">
+          <ul className="channel-list">
+            {channelList}
+          </ul>
+          <Link
+            onClick={() => this.openModal()}
+            className="add-channel"
+            to={this.props.location.pathname}>
+            <p className="channel-name">+</p>
+          </Link>
+        </div>
         <AddChannelContainer
-          isOpen={this.state.isModalOpen}
-          onClose={() => this.closeModal()}
-          />
-      </div>
+        isOpen={this.state.isModalOpen}
+        onClose={() => this.closeModal()}
+        />
+      </section>
     );
   }
 }

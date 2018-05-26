@@ -9,6 +9,15 @@
   background-color: lighten($primary-color, 5%);
   border-right: 1px solid $secondary-color;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+      display: none;
+  }
+
+  .add-server p {
+    margin-bottom: 44px;
+  }
 
   .server-button {
     display: flex;
@@ -26,8 +35,6 @@
     font-weight: 600;
     max-height: 40px;
     text-align: center;
-
-    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
       background-color: $ternary-color;
@@ -47,7 +54,7 @@
     border-bottom: 1px solid $secondary-color;
     color: darkred;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    // transition: background-color 0.3s ease, color 0.3s ease;
 
     // &:hover {
     //   background-color: $ternary-color;

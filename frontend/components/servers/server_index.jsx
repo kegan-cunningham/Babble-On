@@ -14,10 +14,6 @@ class ServerIndex extends React.Component {
     this.props.fetchServers();
   }
 
-  componentWillReceiveProps() {
-    this.props.fetchServers();
-  }
-
   openModal() {
     this.setState({ isModalOpen: true });
     this.props.clearErrors();

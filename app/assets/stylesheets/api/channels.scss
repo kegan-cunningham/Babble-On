@@ -11,8 +11,6 @@
   height: 90%;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow: scroll;
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
 
   &::-webkit-scrollbar {
       display: none;
@@ -30,7 +28,6 @@
     border-bottom: 1px solid $secondary-color;
     color: $secondary-color;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
       background-color: $ternary-color;
@@ -38,7 +35,7 @@
     }
   }
 
-  .add-channel p{
+  .add-channel p {
     margin-bottom: 26px;
   }
 
@@ -49,7 +46,7 @@
     border-bottom: 1px solid $secondary-color;
     color: darkred;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    // transition: background-color 0.3s ease, color 0.3s ease;
 
     // &:hover {
     //   background-color: $ternary-color;
@@ -68,11 +65,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(23%, -56%);
+  transform: translate(-50%, -50%);
   background-color: $primary-color;
   width: 600px;
   height: 310px;
-  z-index: 9;
+  z-index: 99;
   border: 1px solid $secondary-color;
   border-radius: 10px;
 
