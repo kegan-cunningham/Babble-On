@@ -22,13 +22,9 @@ export default class Messages extends React.Component {
     this.createWebSocket();
   }
 
-  componentWillUnmount() {
-    this.deleteWebSocket();
-  }
-
-
   componentDidMount() {
-    this.props.fetchServer(this.props.match.params.serverId).then(
+    this.props.fetchServer(this.props.match.params.serverId)
+    .then(
       () => {
         this.props.fetchChannel(this.props.match.params.channelId).then(
           () => {
@@ -41,6 +37,9 @@ export default class Messages extends React.Component {
     )
     .then(
       () => {document.getElementsByClassName('messages')[0].classList.add('height-transition')}
+    )
+    .then(
+      () => {this.scrollToBottom()}
     );
   }
 
@@ -53,11 +52,26 @@ export default class Messages extends React.Component {
     const channelId = nextProps.currentChannel != null ? nextProps.currentChannel: null;
     const userId = nextProps.currentUser != null ? nextProps.currentUser: null;
     this.setState({
-            currentChatMessage: '',
-            currentChannel: channelId,
-            currentUser: userId,
-            messages: nextProps.messages,
-          });
+      currentChatMessage: '',
+      currentChannel: channelId,
+      currentUser: userId,
+      messages: nextProps.messages,
+    });
+  }
+
+  componentWillUnmount() {
+    this.deleteWebSocket();
+  }
+
+  scrollToBottom() {
+    const scrollHeight = this.messagesList.scrollHeight;
+    const height = this.messagesList.clientHeight;
+    const maxScrollTop = scrollHeight - height;
+    this.messagesList.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   createWebSocket() {
@@ -101,7 +115,6 @@ export default class Messages extends React.Component {
     return messageTimeHour + messageTime + amPm;
   }
 
-  //
   handleInput(e) {
     this.setState({
       currentChatMessage: e.target.value
@@ -152,7 +165,7 @@ export default class Messages extends React.Component {
       );
     });
     return (
-      <div className="messages">
+      <div className="messages" ref={(el) => { this.messagesList = el; }}>
         { messages }
         <input
           className="message-input"
