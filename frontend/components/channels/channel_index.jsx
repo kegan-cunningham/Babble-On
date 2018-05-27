@@ -57,9 +57,11 @@ class ChannelIndex extends React.Component {
       channelList = this.props.channels.map(channel => {
         let deleteChannel = null;
         let colorStyle;
+        let deleteColorStyle;
         if (channel === null || this.props.currentChannel === null){
         } else if (channel.id === this.props.currentChannel.id){
           colorStyle = { backgroundColor: '#2a473b'};
+          deleteColorStyle = { display: 'block' };
         }
        if (this.props.currentServer.owner_id === this.props.currentUser.currentUser.id
           && this.props.channels.length > 1) {
@@ -76,8 +78,8 @@ class ChannelIndex extends React.Component {
               key={channel.id}
               className="channel-button"
               to={`/${this.props.currentServer.id}/${channel.id}`}>
-              <p style={ colorStyle } className="channel-name"> { channel.name.length < 14 ? channel.name : channel.name.slice(0, 13) + '...' } </p>
-              <p style={ colorStyle } className="channel-delete"> { deleteChannel } </p>
+              <p style={ colorStyle } className="channel-name"> { channel.name.length < 14 ? channel.name : channel.name.slice(0, 11) + '...' } </p>
+              <p style={ deleteColorStyle } className="channel-delete"> { deleteChannel } </p>
 
               </NavLink>
           );
