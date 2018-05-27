@@ -37,20 +37,20 @@ class ServerIndex extends React.Component {
       allServers = Object.values(this.props.servers).map(server => {
         let deleteServer = null;
         let colorStyle;
+        let deleteColorStyle;
         if (server === null || this.props.currentServer === null){
         } else if (server.id === this.props.currentServer.id){
-          colorStyle = { backgroundColor: '#2a473b' };
+          colorStyle = { backgroundColor: '#2a473b'};
+          if (server.owner_id === this.props.currentUser.currentUser.id) {
+            deleteServer = (
+              <button
+                className="remove-server-button"
+                onClick={this.deleteServer(server.id)}>
+                x
+              </button>
+            );
+          }
         }
-        if (server.owner_id === this.props.currentUser.currentUser.id) {
-          deleteServer = (
-            <button
-              className="remove-server-button"
-              onClick={this.deleteServer(server.id)}>
-              x
-            </button>
-          );
-        }
-
         return (
           <div className='server-button'>
             <Link
@@ -60,7 +60,7 @@ class ServerIndex extends React.Component {
             >
               <p className='server-name' style={colorStyle}>{server.name.length < 14 ? server.name : server.name.slice(0, 8) + '...'}</p>
             </Link>
-            <p style={ colorStyle } className="server-delete"> { deleteServer } </p>
+            <p style={ deleteColorStyle } className="server-delete"> { deleteServer } </p>
           </div>
         );
       });
