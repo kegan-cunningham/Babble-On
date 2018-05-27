@@ -11,11 +11,22 @@
   overflow: scroll;
 }
 
-.message-body {
+.message-container {
   padding: 10px;
   margin-bottom: 5px;
   border-bottom: 1px solid $ternary-color;
-  width: 900px;
+}
+
+.message-body {
+  border-bottom: 1px solid $ternary-color;
+  min-width: 100px;
+  display: inline-flex;
+  border-radius: 15px;
+  padding: 5px;
+  max-width: 55vw;
+  white-space: pre-line;
+  list-style: none;
+  background-color: $ternary-color;
 }
 
 .message-input {
@@ -26,6 +37,7 @@
   width: 60%;
   margin-top: 10px;
   margin-bottom: 20px;
+  white-space: pre-line;
 }
 
 .message-info {

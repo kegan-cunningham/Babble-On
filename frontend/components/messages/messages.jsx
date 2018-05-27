@@ -136,7 +136,7 @@ export default class Messages extends React.Component {
   }
 
   handleSubmit(event) {
-    if(event.key === 'Enter') {
+    if(event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
       this.chat.create(this.state);
       this.setState({
@@ -151,7 +151,7 @@ export default class Messages extends React.Component {
     messages = messages.map(message => {
       const time = this.parseTime(message);
       return(
-        <div className="message-body">
+        <div className="message-container">
           <section className="message-info">
             <div className="message-author">
               { message.author }
@@ -160,14 +160,14 @@ export default class Messages extends React.Component {
                at { time }
             </div>
           </section>
-          • { message.body }
+          <p className="message-body">{ message.body }</p>
         </div>
       );
     });
     return (
       <div className="messages" ref={(el) => { this.messagesList = el; }}>
         { messages }
-        <input
+        <textarea
           className="message-input"
           autoFocus
           type="text"
