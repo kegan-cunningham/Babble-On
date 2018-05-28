@@ -111,6 +111,9 @@ export default class Messages extends React.Component {
       amPm = ' PM';
       messageTimeHour = (parseInt(messageTimeHour) % 12).toString();
     }
+    if (messageTimeHour[0] == 0){
+      messageTimeHour = messageTimeHour.slice(1);
+    }
     messageTime += message.created_at.slice(13, 19);
     return messageTimeHour + messageTime + amPm;
   }
