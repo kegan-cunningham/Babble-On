@@ -53,17 +53,18 @@
   }
 
   .server-delete button {
-    color: #2a473b;
+    opacity: 0;
     font-size: 120%;
+    color: red;
     height: 30px;
     width: 30px;
-    margin-left: -10px;
+    margin-left: 0px;
     margin-top: -15px;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: opacity 0.3s ease;
 
     &:hover {
-      color: red;
+      opacity: 1;
     }
   }
 

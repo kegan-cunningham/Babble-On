@@ -14,12 +14,6 @@ class ChannelIndex extends React.Component {
     this.props.fetchServer(this.props.match.params.serverId)
     .then(
       () => {document.getElementsByClassName('channel-index')[0].classList.add('width-transition')}
-    ).then(
-      () => {
-        console.log('this.props.currentChannel')
-        console.log(this.props.currentChannel)
-        this.setState({ currentChannelId: this.props.currentChannel.id})
-      }
     )
   }
 
@@ -69,15 +63,13 @@ class ChannelIndex extends React.Component {
         }
        if (this.props.currentServer.owner_id === this.props.currentUser.currentUser.id
           && this.props.channels.length > 1) {
-            if (this.state.currentChannelId === channel.id){
-              deleteChannel = (
-                <button
-                  className="remove-channel-button"
-                  onClick={this.deleteChannel(channel.id)}>
-                  x
-                </button>
-              );
-            }
+            deleteChannel = (
+              <button
+                className="remove-channel-button"
+                onClick={this.deleteChannel(channel.id)}>
+                x
+              </button>
+            );
           }
           return (
             <NavLink
