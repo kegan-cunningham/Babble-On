@@ -63,13 +63,15 @@ class ChannelIndex extends React.Component {
         }
        if (this.props.currentServer.owner_id === this.props.currentUser.currentUser.id
           && this.props.channels.length > 1) {
-            deleteChannel = (
-              <button
-                className="remove-channel-button"
-                onClick={this.deleteChannel(channel.id)}>
-                x
-              </button>
-            );
+            // if (this.props.currentChannel.id === channel.id){
+              deleteChannel = (
+                <button
+                  className="remove-channel-button"
+                  onClick={this.deleteChannel(channel.id)}>
+                  x
+                </button>
+              );
+            // }
           }
           return (
             <NavLink

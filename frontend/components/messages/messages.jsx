@@ -154,7 +154,7 @@ export default class Messages extends React.Component {
     messages = messages.map(message => {
       const time = this.parseTime(message);
       return(
-        <div className="message-container">
+        <div key={message.id} className="message-container">
           <section className="message-info">
             <div className="message-author">
               { message.author }

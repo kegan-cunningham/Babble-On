@@ -52,9 +52,8 @@ class ServerIndex extends React.Component {
           }
         }
         return (
-          <div className='server-button'>
+          <div key={server.id} className='server-button'>
             <Link
-              key={server.id}
               className='server-link'
               to={`/${server.id}/${server.channels[0].id}`}
             >
