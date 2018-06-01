@@ -43,16 +43,21 @@
     padding: 10px;
     height: 19px;
     width: 10%;
-    border-bottom: 1px solid $secondary-color;
-    color: darkred;
-    text-align: center;
-    display: none;
-    // transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    // &:hover {
-    //   background-color: $ternary-color;
-    //   color: $primary-color;
-    // }
+  .channel-delete button {
+    color: #2a473b;
+    font-size: 120%;
+    height: 30px;
+    width: 30px;
+    margin-left: -10px;
+    margin-top: -15px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      color: red;
+    }
   }
 
 }
