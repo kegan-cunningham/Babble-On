@@ -72,7 +72,7 @@ const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handl
 
 const CurrentServerChannel = ({ currentServer, currentChannel }) => (
   <section className="header-server-channel">
-    <h1>Server - Channel</h1>
+    <h1>{currentServer.name} - {currentChannel.name}</h1>
   </section>
 );
 
