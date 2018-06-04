@@ -7,6 +7,8 @@ const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
     dropdownOpen: state.ui.dropdownOpen,
+    currentServer: state.servers.currentServer,
+    currentChannel: state.channels.currentChannel,
   };
 };
 

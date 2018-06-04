@@ -8,11 +8,11 @@ class Header extends React.Component {
   }
 
   render () {
-    let headerLinksOrPhoto;
+    let logoutButton;
     if (this.props.currentUser) {
-      headerLinksOrPhoto = (
+      logoutButton = (
         <div>
-          <ProfilePhotoLinks
+          <LogoutButton
             handleProfileLink={this.handleProfileLink}
             dropdownOpen={this.props.dropdownOpen}
             toggleDropdown={this.props.toggleDropdown}
@@ -22,31 +22,36 @@ class Header extends React.Component {
           />
         </div>
       );
-    } else {
-      headerLinksOrPhoto = (
+    }
+
+    let currentServerChannel;
+    if (this.props.currentServer && this.props.currentChannel){
+      currentServerChannel = (
         <div>
-          <SessionLinks
-            key={1}
-          />
+        <CurrentServerChannel
+          currentServer={this.props.currentServer}
+          currentChannel={this.props.currentChannel}
+          key={this.props.currentServer}
+        />
         </div>
-      );
+      )
     }
 
     return (
-      <div>
-      { headerLinksOrPhoto }
+      <div className="header-container">
+        <div>
+          { currentServerChannel }
+        </div>
+        <div>
+          { logoutButton }
+        </div>
       </div>
     );
   }
 }
 
-const SessionLinks = (props) => (
-  <nav className="header-session-links">
-  </nav>
-);
-
-const ProfilePhotoLinks = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
-  <section className="header-photo-links">
+const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
+  <section className="header-logout">
     {/*<div onClick={toggleDropdown} className="dropdown-toggle">
       <i>
         <div className="hamburger-bar"></div>
@@ -62,6 +67,12 @@ const ProfilePhotoLinks = ({ currentUser, logout, dropdownOpen, toggleDropdown, 
     <button className="logout-button" onClick={
         function(event){ toggleDropdown(); logout()}
       }>Log Out</button>
+  </section>
+);
+
+const CurrentServerChannel = ({ currentServer, currentChannel }) => (
+  <section className="header-server-channel">
+    <h1>Server - Channel</h1>
   </section>
 );
 

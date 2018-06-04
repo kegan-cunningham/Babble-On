@@ -65,8 +65,21 @@ header {
   margin: 6px 0;
 }
 
-.header-photo-links {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logout {
   margin-right: 20px;
+}
+
+.header-server-channel {
+  color: $secondary-color;
+  margin-left: 500px;
+  font-size: 150%;
+  font-weight: 500;
 }
 
 .hamburger-menu {
