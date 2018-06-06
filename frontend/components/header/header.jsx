@@ -7,6 +7,11 @@ class Header extends React.Component {
     super(props);
   }
 
+  componentWillReceiveProps (nextProps) {
+    console.log('yo')
+     this.setState({});
+}
+
   render () {
     let logoutButton;
     if (this.props.currentUser) {
@@ -25,7 +30,7 @@ class Header extends React.Component {
     }
 
     let currentServerChannel;
-    if (this.props.currentServer && this.props.currentChannel){
+    if (this.props.currentServer && this.props.currentChannel && (this.props.location.pathname != "/")){
       currentServerChannel = (
         <div>
         <CurrentServerChannel
@@ -39,6 +44,7 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
+        <h1 className="header-logo"><Link to={'/'}>Babblio</Link></h1>
         <div>
           { currentServerChannel }
         </div>

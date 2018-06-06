@@ -15,7 +15,6 @@ const App = () => (
   <div className="body">
     <header>
       <section className="header-container">
-        <h1 className="header-logo"><Link to={'/'}>Babblio</Link></h1>
         <HeaderContainer/>
       </section>
     </header>
