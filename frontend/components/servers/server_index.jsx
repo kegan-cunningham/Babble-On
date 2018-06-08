@@ -23,6 +23,11 @@ class ServerIndex extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
+  addServerChannelName () {
+    var headerServerChannel = document.getElementById('header-server-channel');
+    headerServerChannel.style.display = 'block';
+  }
+
   deleteServer(serverId) {
     return () => this.props.deleteServer(serverId)
       .then(() => this.props.fetchServers())
@@ -56,6 +61,7 @@ class ServerIndex extends React.Component {
             <Link
               className='server-link'
               to={`/${server.id}/${server.channels[0].id}`}
+              onClick={this.addServerChannelName}
             >
               <p className='server-name' style={colorStyle}>{server.name.length < 14 ? server.name : server.name.slice(0, 8) + '...'}</p>
             </Link>

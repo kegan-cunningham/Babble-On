@@ -8,9 +8,13 @@ class Header extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('yo')
      this.setState({});
-}
+  }
+
+  removeServerChannelName () {
+    var headerServerChannel = document.getElementById('header-server-channel');
+    headerServerChannel.style.display = 'none';
+  }
 
   render () {
     let logoutButton;
@@ -44,7 +48,7 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
-        <h1 className="header-logo"><Link to={'/'}>Babblio</Link></h1>
+        <h1 className="header-logo"><Link onClick={this.removeServerChannelName} to={'/'}>Babblio</Link></h1>
         <div>
           { currentServerChannel }
         </div>
@@ -77,7 +81,7 @@ const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handl
 );
 
 const CurrentServerChannel = ({ currentServer, currentChannel }) => (
-  <section className="header-server-channel">
+  <section id="header-server-channel" className="header-server-channel">
     <h1>{currentServer.name} - {currentChannel.name}</h1>
   </section>
 );
