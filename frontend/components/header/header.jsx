@@ -11,11 +11,6 @@ class Header extends React.Component {
      this.setState({});
   }
 
-  removeServerChannelName () {
-    var headerServerChannel = document.getElementById('header-server-channel');
-    headerServerChannel.style.display = 'none';
-  }
-
   render () {
     let logoutButton;
     if (this.props.currentUser) {
@@ -60,6 +55,12 @@ class Header extends React.Component {
   }
 }
 
+function removeServerChannelName () {
+  var headerServerChannel = document.getElementById('header-server-channel');
+  console.log(headerServerChannel)
+  headerServerChannel.style.display = 'none';
+}
+
 const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
   <section className="header-logout">
     {/*<div onClick={toggleDropdown} className="dropdown-toggle">
@@ -75,7 +76,7 @@ const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handl
     <ul className={dropdownOpen ? 'dropdown' : 'hidden'}>*/}
     {/*}</ul>*/}
     <button className="logout-button" onClick={
-        function(event){ toggleDropdown(); logout()}
+        function(event){ toggleDropdown(); logout(); removeServerChannelName()}
       }>Log Out</button>
   </section>
 );
