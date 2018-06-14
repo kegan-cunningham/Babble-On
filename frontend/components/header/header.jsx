@@ -43,7 +43,7 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
-        <h1 className="header-logo"><Link onClick={this.removeServerChannelName} to={'/'}>Babblio</Link></h1>
+        <h1 className="header-logo"><Link onClick={removeServerChannelName} to={'/'}>Babblio</Link></h1>
         <div>
           { currentServerChannel }
         </div>
@@ -56,6 +56,7 @@ class Header extends React.Component {
 }
 
 function removeServerChannelName () {
+  console.log('removing....')
   var headerServerChannel = document.getElementById('header-server-channel');
   console.log(headerServerChannel)
   headerServerChannel.style.display = 'none';
