@@ -1,10 +1,9 @@
 @import '../variables';
 
 .servers {
-  position: absolute;
-  top: 62px;
+  margin-top: 62px;
   left: 0px;
-  height: 89%;
+  height: 100%;
   overflow: hidden;
   width: 161px;
   background-color: lighten($primary-color, 5%);
