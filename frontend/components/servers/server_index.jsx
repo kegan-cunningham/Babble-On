@@ -72,6 +72,7 @@ class ServerIndex extends React.Component {
     } else {
       allServers = <p>No servers found</p>
     }
+
     return (
       <div className="servers">
         {allServers}
