@@ -64,18 +64,6 @@ function removeServerChannelName () {
 
 const LogoutButton = ({ currentUser, logout, dropdownOpen, toggleDropdown, handleProfileLink }) => (
   <section className="header-logout">
-    {/*<div onClick={toggleDropdown} className="dropdown-toggle">
-      <i>
-        <div className="hamburger-bar"></div>
-        <div className="hamburger-bar"></div>
-        <div className="hamburger-bar"></div>
-      </i>
-      <div className="header-photo">
-        <img src={currentUser.imageUrl}></img>
-      </div>
-    </div>
-    <ul className={dropdownOpen ? 'dropdown' : 'hidden'}>*/}
-    {/*}</ul>*/}
     <button className="logout-button" onClick={
         function(event){ toggleDropdown(); logout(); removeServerChannelName()}
       }>Log Out</button>
